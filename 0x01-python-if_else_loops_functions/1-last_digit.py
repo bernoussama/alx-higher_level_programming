@@ -10,6 +10,6 @@ elif last_digit == 0:
     sign = "0"
 elif last_digit < 6 and not 0:
     sign = "less than 6 and not 0"
-else:
-    sign = ""
+# else:
+#     sign = ""
 print(f"Last digit of {number} is {last_digit} and is {sign}")
