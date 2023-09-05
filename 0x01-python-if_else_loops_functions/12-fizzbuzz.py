@@ -4,6 +4,7 @@ def multiple(i, n):
 
 
 def printnum(num):
+    special = {}
     special = {3: "Fizz", 5: "Buzz"}
     # special[2] = "Deez"
     to_print = []
