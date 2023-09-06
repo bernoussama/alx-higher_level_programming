@@ -2,7 +2,11 @@
 import random
 
 number = random.randint(-10000, 10000)
-last_digit = int(str(number)[-1])
+number = "fs"
+try:
+    last_digit = int(str(number)[-1])
+except:
+    raise TypeError
 last_digit = last_digit if number >= 0 else last_digit * -1
 if last_digit > 5:
     sign = "greater than 5"
