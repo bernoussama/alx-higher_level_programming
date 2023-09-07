@@ -10,4 +10,4 @@ if __name__ == "__main__":
 
     for idx, arg in enumerate(argv):
         if idx != 0:
-            print(f"{idx}:{arg}")
+            print(f"{idx}: {arg}")
