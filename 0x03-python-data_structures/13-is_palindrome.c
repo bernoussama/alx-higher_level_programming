@@ -46,7 +46,7 @@ int is_palindrome(listint_t **head)
 
 	palindrome = 1;
 	offset = 0;
-	while (offset < n / 2)
+	while (offset <= n / 2)
 	{
 		if (arr[offset] != arr[n - 1 - offset])
 		{
