@@ -13,7 +13,6 @@ int is_palindrome(listint_t **head)
 	unsigned int n; /* number of nodes */
 	unsigned int *arr;
 	unsigned int offset;
-	int palindrome = 0;
 
 	if (*head == NULL)
 	{
@@ -44,18 +43,16 @@ int is_palindrome(listint_t **head)
 		offset++;
 	}
 
-	palindrome = 1;
 	offset = 0;
 	while (offset <= n / 2)
 	{
 		if (arr[offset] != arr[n - 1 - offset])
 		{
-			palindrome = 0;
-			return (palindrome);
+			return (0);
 		}
 		offset++;
 	}
 
 	free(arr);
-	return (palindrome);
+	return (1);
 }
