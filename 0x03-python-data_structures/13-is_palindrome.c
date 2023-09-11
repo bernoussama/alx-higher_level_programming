@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
  * is_palindrome - check if linked list is palindrome
@@ -13,8 +12,6 @@ int is_palindrome(listint_t **head)
 	const listint_t *current;
 	unsigned int n; /* number of nodes */
 	unsigned int *arr;
-	unsigned int *tail;
-	unsigned int *top;
 	unsigned int offset;
 	int palindrome = 0;
 
@@ -37,21 +34,21 @@ int is_palindrome(listint_t **head)
 		free(arr);
 		return (0);
 	}
-	tail = &arr[n - 1];
 
 	current = *head;
 	offset = 0;
 	while (current != NULL)
 	{
-		arr[offset++] = current->n;
+		arr[offset] = current->n;
 		current = current->next;
+		offset++;
 	}
 
 	palindrome = 1;
 	offset = 0;
 	while (offset < n / 2)
 	{
-		if (top[offset] != tail[-offset])
+		if (arr[offset] != arr[n - 1 - offset])
 		{
 			palindrome = 0;
 			return (palindrome);
