@@ -16,7 +16,7 @@ int is_palindrome(listint_t **head)
 	listint_t *tmp2 = NULL;
 	int palindrome = 1;
 
-	if (!head)
+	if (!(*head))
 		return (palindrome);
 
 	fast = *head;
