@@ -11,7 +11,7 @@ int is_palindrome(listint_t **head)
 {
 	const listint_t *current;
 	unsigned int n; /* number of nodes */
-	unsigned int *arr;
+	// unsigned int *arr;
 	unsigned int offset;
 
 	if (*head == NULL)
@@ -26,19 +26,19 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 		n++;
 	}
-
-	arr = malloc(sizeof(unsigned int) * n);
-	if (!arr)
-	{
-		free(arr);
-		return (0);
-	}
+	unsigned int array[n];
+	// arr = malloc(sizeof(unsigned int) * n);
+	// if (!arr)
+	// {
+	// 	free(arr);
+	// 	return (0);
+	// }
 
 	current = *head;
 	offset = 0;
 	while (current != NULL)
 	{
-		arr[offset] = current->n;
+		array[offset] = current->n;
 		current = current->next;
 		offset++;
 	}
@@ -46,13 +46,13 @@ int is_palindrome(listint_t **head)
 	offset = 0;
 	while (offset <= n / 2)
 	{
-		if (arr[offset] != arr[n - 1 - offset])
+		if (array[offset] != array[n - 1 - offset])
 		{
 			return (0);
 		}
 		offset++;
 	}
 
-	free(arr);
+	// free(arr);
 	return (1);
 }
