@@ -28,6 +28,10 @@ int is_palindrome(listint_t **head)
 		slow = slow->next;
 	}
 
+	if (fast == slow)
+	{
+		return (palindrome);
+	}
 	while (slow)
 	{
 		tmp2 = slow->next;
