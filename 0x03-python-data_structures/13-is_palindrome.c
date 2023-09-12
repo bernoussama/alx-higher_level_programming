@@ -9,42 +9,54 @@
  */
 int is_palindrome(listint_t **head)
 {
-	const listint_t *current;
-	unsigned int n; /* number of nodes */
-	unsigned int offset;
+	listint_t *fast;
+	listint_t *slow;
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
+	listint_t *tmp = NULL;
+	int palindrome = 1;
 
-	if (*head == NULL)
+	if (!*head)
+		return (palindrome);
+
+	fast = *head;
+	slow = *head;
+	while (fast && fast->next)
 	{
-		return (1);
+		prev = slow; /* node before slow */
+		fast = fast->next->next;
+		slow = slow->next;
+		next = slow; /* node after slow */
 	}
 
-	current = *head;
-	n = 0;
-	while (current != NULL)
+	prev = slow;
+	while (prev)
 	{
-		current = current->next;
-		n++;
-	}
-	unsigned int array[n];
-
-	current = *head;
-	offset = 0;
-	while (current != NULL)
-	{
-		array[offset] = current->n;
-		current = current->next;
-		offset++;
+		tmp = prev;
+		prev = next;
+		next->next = tmp;
+		next = prev->next;
 	}
 
-	offset = 0;
-	while (offset <= n / 2)
+	tmp = *head;
+	while (tmp != slow)
 	{
-		if (array[offset] != array[n - 1 - offset])
+		if (tmp->n != next->n)
 		{
-			return (0);
+			palindrome = 0;
+			break;
 		}
-		offset++;
+		tmp = tmp->next;
+		next = next->next;
 	}
 
-	return (1);
+	while (next != slow)
+	{
+		tmp = next;
+		next = prev;
+		prev->next = tmp;
+		prev = next->next;
+	}
+
+	return (palindrome);
 }
