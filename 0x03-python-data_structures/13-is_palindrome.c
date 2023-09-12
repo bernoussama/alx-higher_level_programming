@@ -12,8 +12,8 @@ int is_palindrome(listint_t **head)
 	listint_t *fast;
 	listint_t *slow;
 	listint_t *prev = NULL;
-	listint_t *next = NULL;
 	listint_t *tmp = NULL;
+	listint_t *tmp2 = NULL;
 	int palindrome = 1;
 
 	if (!*head)
@@ -23,40 +23,43 @@ int is_palindrome(listint_t **head)
 	slow = *head;
 	while (fast && fast->next)
 	{
-		prev = slow; /* node before slow */
+		prev = slow;
 		fast = fast->next->next;
 		slow = slow->next;
-		next = slow; /* node after slow */
 	}
 
-	prev = slow;
-	while (prev)
+	while (slow)
 	{
-		tmp = prev;
-		prev = next;
-		next->next = tmp;
-		next = prev->next;
+		tmp2 = slow->next;
+		slow->next = tmp;
+		tmp = slow;
+		slow = tmp2;
 	}
 
-	tmp = *head;
-	while (tmp != slow)
+	slow = tmp;
+	tmp2 = *head;
+	while (slow && tmp2)
 	{
-		if (tmp->n != next->n)
+		if (slow->n != tmp2->n)
 		{
 			palindrome = 0;
 			break;
 		}
-		tmp = tmp->next;
-		next = next->next;
+		slow = slow->next;
+		tmp2 = tmp2->next;
 	}
 
-	while (next != slow)
+	slow = tmp;
+	tmp = NULL;
+	tmp2 = NULL;
+	while (slow)
 	{
-		tmp = next;
-		next = prev;
-		prev->next = tmp;
-		prev = next->next;
+		tmp2 = slow->next;
+		slow->next = tmp;
+		tmp = slow;
+		slow = tmp2;
 	}
+	prev->next = tmp;
 
 	return (palindrome);
 }
