@@ -13,7 +13,7 @@ def roman_to_int(roman_string):
     substractive = ("IV", "IX", "XL", "XC", "CD", "CM")
     if isinstance(roman_string, str):
         for idx, char in enumerate(roman_string):
-            if roman_string[idx : idx + 2] in substractive:
+            if roman_string[idx:idx + 2] in substractive:
                 numeral -= numerals[char]
             else:
                 numeral += numerals[char]
