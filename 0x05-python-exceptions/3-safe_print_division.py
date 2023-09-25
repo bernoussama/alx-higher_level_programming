@@ -6,5 +6,5 @@ def safe_print_division(a, b):
     except ZeroDivisionError:
         value = None
     finally:
-        print("Inside result: {}".format(value))
+        print("Inside result: {:}".format(value))
         return value
