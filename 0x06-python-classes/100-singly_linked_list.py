@@ -45,7 +45,7 @@ class SinglyLinkedList:
             values.append(str(ptr.data))
             ptr = ptr.next_node
 
-        return "\n".join(values)
+        return "\n".join(values) + "\n"
 
     def sorted_insert(self, value):
         if self.__head is None:
