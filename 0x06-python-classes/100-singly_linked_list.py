@@ -2,6 +2,8 @@
 
 
 class Node:
+    """Singly Linked List Node"""
+
     def __init__(self, data, next_node=None) -> None:
         self.data = data
         self.next_node = next_node
@@ -30,6 +32,8 @@ class Node:
 
 
 class SinglyLinkedList:
+    """Singly Linked List"""
+
     def __init__(self) -> None:
         self.__head = None
 
