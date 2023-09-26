@@ -10,8 +10,8 @@ class Square:
     """
 
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = self.size(size)
-        self.__position = self.position(position)
+        self.__size = size
+        self.__position = position
 
     def area(self):
         """
@@ -34,17 +34,12 @@ class Square:
 
     def my_print(self):
         if self.size > 0:
-            if self.position[1] > 0:
-                print(*["#" * self.size for _ in range(self.size)], sep="\n")
-            else:
-                print(
-                    *[
-                        (" " * self.position[0]) + ("#" * self.size)
-                        for _ in range(self.size)
-                    ],
-                    sep="\n"
-                )
-
+            for _ in range(self.position[1]):
+                print()
+            print(
+                *[(" " * self.position[0]) + "#" * self.size for _ in range(self.size)],
+                sep="\n"
+            )
         else:
             print()
 
