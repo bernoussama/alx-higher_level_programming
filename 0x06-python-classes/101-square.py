@@ -62,7 +62,7 @@ class Square:
                     ],
                 )
             )
-            return "\n".join(result)
+            return "".join(result)
 
         else:
             return "\n"
