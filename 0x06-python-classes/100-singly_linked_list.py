@@ -48,23 +48,47 @@ class SinglyLinkedList:
         return "\n".join(values)
 
     def sorted_insert(self, value):
+        """Insert Node keeping the list sorted (increasingly)"""
+        ptr = self.__head
         if self.__head is None:
             self.__head = Node(value)
+
             return
 
-        elif self.__head.data > value:
-            new = Node(value, next_node=self.__head)
-            self.__head = new
+        elif self.__head.data >= value:
+            self.__head = Node(value, next_node=ptr)
+
             return
 
-        ptr = self.__head
-        ptr0 = ptr
-        while ptr is not None:
-            if ptr.data >= value:
-                break
+        else:
             ptr0 = ptr
-            ptr = ptr.next_node
+            while ptr is not None:
+                if ptr.data >= value:
+                    break
+                ptr0 = ptr
+                ptr = ptr.next_node
 
-        new = Node(value, next_node=ptr)
-        ptr0.next_node = new
-        return
+            new = Node(value, next_node=ptr)
+            ptr0.next_node = new
+            return
+
+    # def sorted_insert(self, value):
+    #     """Insert Node while keeping the list sorted (increasingly)"""
+    #
+    #     new_node = Node(value)
+    #
+    #     # Handle an empty list or inserting as the new head
+    #     if self.__head is None or self.__head.data >= value:
+    #         new_node.next_node = self.__head
+    #         self.__head = new_node
+    #         return
+    #
+    #     current = self.__head
+    #
+    #     # Traverse the list to find the insertion point
+    #     while current.next_node is not None and current.next_node.data < value:
+    #         current = current.next_node
+    #
+    #     # Insert the new node after the current node
+    #     new_node.next_node = current.next_node
+    #     current.next_node = new_node
