@@ -48,8 +48,8 @@ class Square:
             print()
 
     def __str__(self):
-        result = []
         if self.__size > 0:
+            result = []
             if self.__position[1] > 0:
                 for _ in range(self.__position[1]):
                     result.append("\n")
