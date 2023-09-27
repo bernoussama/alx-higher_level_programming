@@ -48,16 +48,13 @@ class SinglyLinkedList:
         return "\n".join(values)
 
     def sorted_insert(self, value):
-        """Insert Node keeping the list sorted (increasingly)"""
         ptr = self.__head
         if self.__head is None:
             self.__head = Node(value)
-
             return
 
         elif self.__head.data >= value:
             self.__head = Node(value, next_node=ptr)
-
             return
 
         else:
