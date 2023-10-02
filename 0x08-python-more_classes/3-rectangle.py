@@ -50,6 +50,8 @@ class Rectangle:
             return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        if self.__height == 0 or self.__width == 0:
+            return ""
         line = "#" * self.__width
         rect = f"{line}\n" * (self.__height - 1)
         return rect + line
