@@ -57,4 +57,4 @@ class Rectangle:
         return rect + line
 
     def __repr__(self):
-        return f"Rectangle({self.__width},{self.__height})"
+        return f"Rectangle({str(self.__width)},{str(self.__height)})"
