@@ -51,5 +51,5 @@ class Rectangle:
 
     def __str__(self):
         line = "#" * self.__width
-        rect = f"{line}\n" * self.__height
-        return rect
+        rect = f"{line}\n" * self.__height - 1
+        return rect + line
