@@ -6,3 +6,6 @@ class Rectangle:
     """class rectangle"""
 
     pass
+
+
+rec = Rectangle()
