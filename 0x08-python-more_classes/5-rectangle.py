@@ -58,7 +58,7 @@ class Rectangle:
 
     def __repr__(self):
         """returns representation to make a new instance using eval"""
-        return "Rectangle(" + str(self.__width) + "," + str(self.__height) + ")"
+        return f"Rectangle({str(self.__width)},{str(self.__height)})"
 
     def __del__(self):
         print("Bye rectangle...")
