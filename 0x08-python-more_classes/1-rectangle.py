@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-""" 
-Rectangle Module 
-"""
+""" Rectangle Module """
 
 
 class Rectangle:
-    """
-    Rectangle Class
-    """
+    """Rectangle Class"""
 
     def __init__(self, width=0, height=0):
+        """
+        Initialize new rectangle object
+
+        Args:
+        width: int
+        height: int
+        """
         self.width = width
         self.height = height
 
@@ -23,7 +26,6 @@ class Rectangle:
             raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
-
         self.__width = value
 
     @property
@@ -36,5 +38,4 @@ class Rectangle:
             raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
-
         self.__height = value
