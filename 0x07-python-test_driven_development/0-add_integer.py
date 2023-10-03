@@ -10,7 +10,7 @@ supplying one function add_integer(). Example,
 
 
 def add_integer(a, b=98):
-    """Return the sum of two integers
+    """Return the sum of two integers or floats
 
     Args:
     a : int|float
