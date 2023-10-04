@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 """
-This is the "" module , Example
+This is a module of text_indentation
 
+Example:
 >>> text_indentation("test?test.test:")
 test?
 <BLANKLINE>
