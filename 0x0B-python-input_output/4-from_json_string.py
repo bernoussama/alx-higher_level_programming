@@ -2,6 +2,7 @@
 
 """
 from_json_string module
+
 """
 import json
 
