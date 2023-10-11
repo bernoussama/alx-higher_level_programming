@@ -27,11 +27,12 @@ class Student:
 
         """
         attributes = dict(self.__dict__)
-        if isinstance(attrs, list) and all(isinstance(item, str) for item in attrs):
-            for attr in self.__dict__.keys():
-                if attr not in attrs:
-                    del attributes[attr]
-            return attributes
+        if isinstance(attrs, list):
+            if all(isinstance(item, str) for item in attrs):
+                for attr in self.__dict__.keys():
+                    if attr not in attrs:
+                        del attributes[attr]
+                return attributes
 
         return attributes
 
