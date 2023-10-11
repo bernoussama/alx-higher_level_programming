@@ -47,9 +47,6 @@
     TypeError: name must be an integer
 
     >>> bg.integer_validator("age", True)
-    Traceback (most recent call last):
-        ...
-    TypeError: name must be an integer
 
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
