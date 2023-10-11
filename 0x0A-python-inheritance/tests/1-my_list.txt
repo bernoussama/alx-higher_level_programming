@@ -23,4 +23,6 @@ tests:
 >>> my_list.append(1)
 >>> my_list.print_sorted()
 [-4, 1, 2, 3, 4, 5]
+>>> my_list.__str__()
+'[-4, 4, 3, 2, 5, 1]'
 
