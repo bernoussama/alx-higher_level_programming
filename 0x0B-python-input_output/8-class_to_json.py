@@ -11,7 +11,6 @@ def class_to_json(obj):
     (list, dictionary, string, integer and boolean) for JSON serialization of an object
 
     """
-    # Check if the object is a dictionary, list, string, integer, or boolean
     if isinstance(obj, dict):
         return {key: class_to_json(value) for key, value in obj.items()}
 
@@ -23,7 +22,3 @@ def class_to_json(obj):
 
     elif hasattr(obj, "__dict__"):
         return class_to_json(obj.__dict__)
-
-    else:
-        # raise ValueError(f"Unsupported data type: {type(obj)}")
-        pass
