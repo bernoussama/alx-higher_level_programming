@@ -36,5 +36,11 @@ class Student:
         return attributes
 
     def reload_from_json(self, json):
+        """
+         replaces all attributes of the Student instance:
+        You can assume json will always be a dictionary
+        A dictionary key will be the public attribute name
+        A dictionary value will be the value of the public attribute
+        """
         for key, value in json.items():
             self.__setattr__(key, value)
