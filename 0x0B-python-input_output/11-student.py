@@ -26,7 +26,7 @@ class Student:
         for JSON serialization of student instance
 
         """
-        attributes = dict(self.__dict__)  # copy by value
+        attributes = dict(self.__dict__)
         if isinstance(attrs, list) and all(isinstance(item, str) for item in attrs):
             for attr in self.__dict__.keys():
                 if attr not in attrs:
@@ -34,3 +34,7 @@ class Student:
             return attributes
 
         return attributes
+
+    def reload_from_json(self, json):
+        for key, value in json.items():
+            self.__setattr__(key, value)
