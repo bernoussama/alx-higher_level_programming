@@ -21,7 +21,8 @@ class Student:
 
     def to_json(self):
         """
-        function that returns the dictionary description with simple data structure
+        function that returns the dictionary description
+        with simple data structure
         (list, dictionary, string, integer and boolean)
         for JSON serialization of student instance
 
