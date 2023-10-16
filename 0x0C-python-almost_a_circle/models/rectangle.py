@@ -45,22 +45,28 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """width getter"""
         return self.__width
 
     @property
     def height(self):
+        """height getter"""
         return self.__height
 
     @property
     def x(self):
+        """x getter"""
         return self.__x
 
     @property
     def y(self):
+        """y getter"""
         return self.__y
 
     @width.setter
     def width(self, value):
+        """width setter"""
+
         name = "width"
         self.validate_int(value, name)
         self.validate_length(value, name)
@@ -68,6 +74,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        """height setter"""
         name = "height"
         self.validate_int(value, name)
         self.validate_length(value, name)
@@ -75,6 +82,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        """x setter"""
         name = "x"
         self.validate_int(value, name)
         self.validate_position(value, name)
@@ -82,6 +90,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        """y setter"""
         name = "y"
         self.validate_int(value, name)
         self.validate_position(value, name)
