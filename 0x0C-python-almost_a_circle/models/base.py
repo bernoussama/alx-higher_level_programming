@@ -3,6 +3,7 @@
 base module
 """
 import json
+from os import write
 
 
 class Base:
@@ -27,3 +28,17 @@ class Base:
         if list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """save to file method"""
+        objs = []
+        if list_objs is None:
+            with open(f"{cls.__name__}.json", "w") as f:
+                json.dump(objs, f)
+            return
+
+        for obj in list_objs:
+            objs.append(obj.to_dictionary())
+        with open(f"{cls.__name__}.json", "w") as f:
+            json.dump(objs, f)
