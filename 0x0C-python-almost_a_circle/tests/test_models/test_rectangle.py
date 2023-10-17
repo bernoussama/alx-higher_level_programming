@@ -3,8 +3,10 @@
 import unittest
 from unittest.mock import patch
 from io import StringIO
+import json
 
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -218,3 +220,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.width, 2)
         self.assertEqual(r1.x, 3)
         self.assertEqual(r1.y, 1)
+
+    def test_to_json_string(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        dict = r1.to_dictionary()
+        self.assertEqual(Base.to_json_string(dict), json.dumps(dict))
