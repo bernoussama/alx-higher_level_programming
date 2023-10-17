@@ -149,6 +149,12 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(2, 2)
         rec2_2 = "##\n##"
         rec4_6 = "####\n####\n####\n####\n####\n####"
+        rec_pos = """
+
+  ##
+  ##
+  ##
+"""
         with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
             r.display()
             output = mock_stdout.getvalue().strip()
@@ -159,6 +165,11 @@ class TestRectangle(unittest.TestCase):
             r.display()
             output = mock_stdout.getvalue().strip()
             self.assertEqual(output, rec4_6)
+        r = Rectangle(2, 3, 2, 2)
+        with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+            r.display()
+            output = mock_stdout.getvalue()
+            self.assertEqual(output, rec_pos)
 
     def test_str(self):
         r = Rectangle(2, 2, 2, 2, 12)
