@@ -148,3 +148,13 @@ class Rectangle(Base):
         """position validation method"""
         if value < 0:
             raise ValueError(f"{name} must be >= 0")
+
+    def to_dictionary(self):
+        """to_dictionary method"""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y,
+        }
