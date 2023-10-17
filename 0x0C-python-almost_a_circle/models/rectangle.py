@@ -111,28 +111,24 @@ class Rectangle(Base):
         print(rec)
 
     def __str__(self):
-        """__str__ method
-        """
+        """__str__ method"""
         return (
             f"[Rectangle] ({ self.id }) { self.x }/{ self.y }"
             + f" - { self.width }/{ self.height }"
         )
 
     def validate_int(self, value, name):
-        """int validation method 
-        """
+        """int validation method"""
         if type(value) is not int:
             raise TypeError(f"{name} must be an integer")
 
     def validate_length(self, value, name):
-        """length validation method 
-        """
+        """length validation method"""
 
         if value <= 0:
             raise ValueError(f"{name} must be > 0")
 
     def validate_position(self, value, name):
-        """position validation method 
-        """
+        """position validation method"""
         if value < 0:
             raise ValueError(f"{name} must be >= 0")
