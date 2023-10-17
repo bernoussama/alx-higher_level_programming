@@ -3,7 +3,6 @@
 base module
 """
 import json
-from os import write
 
 
 class Base:
@@ -31,7 +30,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """save to file method"""
+        """save to file class method"""
         objs = []
         if list_objs is None:
             with open(f"{cls.__name__}.json", "w") as f:
