@@ -112,29 +112,19 @@ class Rectangle(Base):
         rec = y + "\n".join([row for _ in range(self.height)])
         print(rec)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updates Rectangle instance"""
-        try:
-            self.id = args[0]
-        except IndexError:
-            pass
-
-        try:
-            self.width = args[1]
-        except IndexError:
-            pass
-        try:
-            self.height = args[2]
-        except IndexError:
-            pass
-        try:
-            self.x = args[3]
-        except IndexError:
-            pass
-        try:
-            self.y = args[4]
-        except IndexError:
-            pass
+        if args:
+            attrs = ["id", "width", "height", "x", "y"]
+            for (
+                i,
+                arg,
+            ) in enumerate(args):
+                if i < len(attrs):
+                    setattr(self, attrs[i], arg)
+        elif kwargs:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def __str__(self):
         """__str__ method"""
