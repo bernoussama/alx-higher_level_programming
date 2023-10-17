@@ -28,3 +28,17 @@ class Square(Rectangle):
     def __str__(self):
         """__str__ method for Square"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    def update(self, *args, **kwargs):
+        """Updates Rectangle instance"""
+        if args:
+            attrs = ["id", "size", "x", "y"]
+            for (
+                i,
+                arg,
+            ) in enumerate(args):
+                if i < len(attrs):
+                    setattr(self, attrs[i], arg)
+        elif kwargs:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
