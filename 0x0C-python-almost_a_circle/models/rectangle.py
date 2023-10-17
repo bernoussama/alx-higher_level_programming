@@ -116,24 +116,24 @@ class Rectangle(Base):
         """Updates Rectangle instance"""
         try:
             self.id = args[0]
-        except:
+        except IndexError:
             pass
 
         try:
             self.width = args[1]
-        except:
+        except IndexError:
             pass
         try:
             self.height = args[2]
-        except:
+        except IndexError:
             pass
         try:
             self.x = args[3]
-        except:
+        except IndexError:
             pass
         try:
             self.y = args[4]
-        except:
+        except IndexError:
             pass
 
     def __str__(self):
