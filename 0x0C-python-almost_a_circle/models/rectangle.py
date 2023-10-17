@@ -106,8 +106,10 @@ class Rectangle(Base):
         """display method
         prints in stdout the Rectangle instance with the character #
         """
-        row = "#" * self.width
-        rec = "\n".join([row for _ in range(self.height)])
+        y = "\n" * self.y
+        x = " " * self.x
+        row = x + "#" * self.width
+        rec = y + "\n".join([row for _ in range(self.height)])
         print(rec)
 
     def __str__(self):
