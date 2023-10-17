@@ -40,4 +40,4 @@ class Base:
         for obj in list_objs:
             objs.append(obj.to_dictionary())
         with open(f"{cls.__name__}.json", "w") as f:
-            json.dump(objs, f)
+            f.write(cls.to_json_string(objs))
