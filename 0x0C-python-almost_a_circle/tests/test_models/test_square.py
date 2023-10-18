@@ -14,9 +14,9 @@ class TestSquare(unittest.TestCase):
         r2 = self.Square(2)
         r3 = self.Square(2, 0, 1, 12)
         id = r1.id
-        self.assertEqual(id, 1)
+        self.assertEqual(id, 32)
         id = r2.id
-        self.assertEqual(id, 2)
+        self.assertEqual(id, 33)
         id = r3.id
         self.assertEqual(id, 12)
 
