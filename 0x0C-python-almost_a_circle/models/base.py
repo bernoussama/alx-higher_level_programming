@@ -71,6 +71,9 @@ class Base:
             return []
 
         dicts = cls.from_json_string(dicts)
+        if dicts == []:
+            return []
+
         instances = []
         for obj in dicts:
             instances.append(cls.create(**obj))
