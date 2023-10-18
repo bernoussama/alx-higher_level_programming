@@ -67,7 +67,7 @@ class Base:
             with open(f"{cls.__name__}.json", "r") as f:
                 dicts = f.read()
 
-        except FileExistsError:
+        except (FileExistsError, FileNotFoundError):
             return []
 
         dicts = cls.from_json_string(dicts)
