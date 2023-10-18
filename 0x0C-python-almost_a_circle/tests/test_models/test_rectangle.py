@@ -225,3 +225,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 10, 10, 10)
         dict = r1.to_dictionary()
         self.assertEqual(Base.to_json_string(dict), json.dumps(dict))
+
+
+if __name__ == "__main__":
+    unittest.main()
