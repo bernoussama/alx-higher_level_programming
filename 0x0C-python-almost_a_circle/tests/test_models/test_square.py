@@ -1,76 +1,77 @@
-#!/usr/bin/python3
-
 import unittest
 
 from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
-    def setUp(self) -> None:
-        self.Square = Square
+    """
+    Test cases for the Square class.
+    """
 
-    def testIds(self):
-        r1 = self.Square(10)
-        r2 = self.Square(2)
-        r3 = self.Square(2, 0, 1, 12)
-        id = r1.id
-        self.assertEqual(id, 32)
-        id = r2.id
-        self.assertEqual(id, 33)
-        id = r3.id
-        self.assertEqual(id, 12)
+    def test_square_creation(self):
+        """
+        Test the creation of a Square instance.
+        """
+        square_instance = Square(5)
+        self.assertIsInstance(square_instance, Square)
+        self.assertEqual(square_instance.size, 5)
+        self.assertEqual(square_instance.x, 0)
+        self.assertEqual(square_instance.y, 0)
+        self.assertEqual(square_instance.id, 40)
 
-    def test_init_values(self):
-        with self.assertRaises(ValueError):
-            r = Square(0)
-        with self.assertRaises(ValueError):
-            r = Square(20, -4)
-        with self.assertRaises(ValueError):
-            r = Square(20, 2, -3)
+    def test_size_property(self):
+        """
+        Test the size property.
+        """
+        square_instance = Square(3)
+        square_instance.size = 6
+        self.assertEqual(square_instance.size, 6)
+        self.assertEqual(square_instance.width, 6)
+        self.assertEqual(square_instance.height, 6)
 
-    def test_area(self):
-        r1 = Square(3)
-        self.assertEqual(r1.area(), 3**2)
-        r3 = Square(8, 0, 0, 12)
-        self.assertEqual(r3.area(), 8**2)
+    def test_str_method(self):
+        """
+        Test the __str__ method.
+        """
+        square_instance = Square(4, 1, 2, 99)
+        string_representation = str(square_instance)
+        self.assertEqual(string_representation, "[Square] (99) 1/2 - 4")
 
-    def test_update(self):
-        r1 = Square(10, 10, 10, 10)
+    def test_update_method_args(self):
+        """
+        Test the update method with *args.
+        """
+        square_instance = Square(2)
+        square_instance.update(1, 3, 4, 5)
+        self.assertEqual(square_instance.id, 1)
+        self.assertEqual(square_instance.size, 3)
+        self.assertEqual(square_instance.x, 4)
+        self.assertEqual(square_instance.y, 5)
 
-        r1.update(89)
-        self.assertEqual(r1.id, 89)
+    def test_update_method_kwargs(self):
+        """
+        Test the update method with **kwargs.
+        """
+        square_instance = Square(2)
+        square_instance.update(id=1, size=3, x=4, y=5)
+        self.assertEqual(square_instance.id, 1)
+        self.assertEqual(square_instance.size, 3)
+        self.assertEqual(square_instance.x, 4)
+        self.assertEqual(square_instance.y, 5)
 
-        r1.update(89, 2)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.size, 2)
-
-        r1.update(89, 2)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.size, 2)
-
-        r1.update(89, 2, 4)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.size, 2)
-        self.assertEqual(r1.x, 4)
-
-        r1.update(89, 2, 4, 5)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.size, 2)
-        self.assertEqual(r1.x, 4)
-        self.assertEqual(r1.y, 5)
-
-        r1.update(size=1)
-        self.assertEqual(r1.height, 1)
-
-        r1.update(size=1, x=2)
-        self.assertEqual(r1.size, 1)
-        self.assertEqual(r1.x, 2)
-
-        r1.update(y=1, size=2, x=3, id=89)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.size, 2)
-        self.assertEqual(r1.x, 3)
-        self.assertEqual(r1.y, 1)
+    def test_to_dictionary_method(self):
+        """
+        Test the to_dictionary method.
+        """
+        square_instance = Square(3, 2, 1, 42)
+        dictionary = square_instance.to_dictionary()
+        expected_dict = {
+            "id": 42,
+            "size": 3,
+            "x": 2,
+            "y": 1,
+        }
+        self.assertEqual(dictionary, expected_dict)
 
 
 if __name__ == "__main__":

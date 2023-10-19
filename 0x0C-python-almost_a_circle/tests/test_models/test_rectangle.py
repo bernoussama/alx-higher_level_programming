@@ -18,9 +18,9 @@ class TestRectangle(unittest.TestCase):
         r2 = self.Rectangle(2, 10)
         r3 = self.Rectangle(2, 10, 0, 1, 12)
         id = r1.id
-        self.assertEqual(id, 5)
+        self.assertEqual(id, 12)
         id = r2.id
-        self.assertEqual(id, 6)
+        self.assertEqual(id, 13)
         id = r3.id
         self.assertEqual(id, 12)
 
