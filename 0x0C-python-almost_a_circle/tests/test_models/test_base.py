@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" Base unitests"""
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle

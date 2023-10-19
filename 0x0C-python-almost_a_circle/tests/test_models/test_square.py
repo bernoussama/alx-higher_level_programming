@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Square unittests"""
 import unittest
 
 from models.square import Square

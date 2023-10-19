@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Rectangle unittests"""
 
 import unittest
 from unittest.mock import patch
