@@ -1,11 +1,11 @@
 #!/usr/bin/python3
+"""Unittests for base.py"""
 import unittest
 from models.base import Base
 
 
 class TestBase(unittest.TestCase):
-    def tearDown(self):
-        print("tearing down...")
+    """Unitest for testing Base class"""
 
     def test_autoIncrement(self):
         base = Base()
