@@ -1,8 +1,8 @@
 --  creates a table called first_table in the current database
---  with two columns: id and name
---  id is an integer and name is a string
+--  with two columns: id(int) and name(varchar(256))
 
 CREATE TABLE first_table (
-    id INTEGER PRIMARY KEY,
-    name varchar(256),
+    id INT ,
+    name varchar(256)
+
 );
