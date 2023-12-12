@@ -9,7 +9,7 @@ console.log(myObject);
 // };
 
 myObject.incr = function () {
-  this.value += 1;
+  this.value++;
 };
 
 // Object.defineProperty(myObject, 'incr', {
