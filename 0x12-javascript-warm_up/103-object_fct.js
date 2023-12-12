@@ -8,17 +8,17 @@ console.log(myObject);
 //   this.value += 1;
 // };
 
-// myObject.incr = function () {
-//   this.value += 1;
-// };
+myObject.incr = () => {
+  this.value += 1;
+};
 
-Object.defineProperty(myObject, 'incr', {
-  get: function () {
-    return function () {
-      this.value++;
-    };
-  }
-});
+// Object.defineProperty(myObject, 'incr', {
+//   get: function () {
+//     return function () {
+//       this.value++;
+//     };
+//   }
+// });
 
 myObject.incr();
 console.log(myObject);
