@@ -4,6 +4,7 @@
   "description": "0x12-javascript-warm_up",
   "main": "0-javascript_is_amazing.js",
   "scripts": {
+    "fix": "npx prettier *.js --check --write && npx eslint *.js --fix",
     "lint": "semistandard --verbose | snazzy",
     "format": "npm run __format -- --write '**/*.js'",
     "__format": "prettier-eslint --no-bracket-spacing --eslint-path=node_modules/semistandard-prettier-eslint"
