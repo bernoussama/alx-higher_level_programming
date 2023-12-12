@@ -6,5 +6,5 @@ function factorial(n) {
   }
   return n * factorial(n - 1);
 }
-
-console.log(factorial(Number(process.argv[2])));
+const fact = factorial(Number(process.argv[2]));
+console.log(fact);
