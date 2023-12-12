@@ -5,10 +5,10 @@ if (isNaN(size)) {
 } else {
   let square = '';
   for (let i = 0; i < size; i++) {
-    square += '\n';
     for (let j = 0; j < size; j++) {
       square += 'X';
     }
+    if (i < size - 1) square += '\n';
   }
   console.log(square);
 }
