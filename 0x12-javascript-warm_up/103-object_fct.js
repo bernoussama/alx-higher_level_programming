@@ -4,12 +4,21 @@ const myObject = {
   value: 12
 };
 console.log(myObject);
-/*
-YOUR CODE HERE
-*/
-myObject.__proto__.incr = function () {
-  this.value += 1;
-};
+// myObject.__proto__.incr = function () {
+//   this.value += 1;
+// };
+
+// myObject.incr = function () {
+//   this.value += 1;
+// };
+
+Object.defineProperty(myObject, 'incr', {
+  get: function () {
+    return function () {
+      this.value++;
+    };
+  }
+});
 
 myObject.incr();
 console.log(myObject);
