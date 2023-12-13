@@ -1,0 +1,24 @@
+{
+  "name": "0x12-javascript-warm_up",
+  "version": "1.0.0",
+  "description": "0x12-javascript-warm_up",
+  "main": "0-javascript_is_amazing.js",
+  "scripts": {
+    "fix": "npx prettier *.js --check --write && npx eslint *.js --fix",
+    "lint": "semistandard --verbose | snazzy",
+    "format": "npm run __format -- --write '**/*.js'",
+    "__format": "prettier-eslint --no-bracket-spacing --eslint-path=node_modules/semistandard-prettier-eslint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "semistandard": "^17.0.0",
+    "standard-cliengine": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier-eslint": "^16.1.2",
+    "semistandard-prettier-eslint": "^1.0.2"
+  }
+}
