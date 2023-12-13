@@ -1,9 +1,8 @@
 #!/usr/bin/node
-exports.logMe = function (item) {
-  let argnum = 0;
 
-  return function (item) {
-    console.log(`${argnum}: ${item}`);
-    argnum++;
-  };
+let argnum = 0;
+exports.logMe = function (item) {
+  console.log(`${argnum}: ${item}`);
+  argnum++;
+  return argnum;
 };
