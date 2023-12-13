@@ -1,2 +1,3 @@
 #!/usr/bin/node
-exports.Rectangle = class Rectangle {};
+// exports.Rectangle = class Rectangle {};
+class Rectangle {}
