@@ -3,7 +3,6 @@
 class Rectangle {
   constructor (w, h) {
     if (w > 0 && h > 0) {
-      // if w or h is a positive integer
       this.width = w;
       this.height = h;
     }
