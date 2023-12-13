@@ -1,7 +1,5 @@
 {
-  "extends": ["airbnb", "semistandard", "prettier"],
-  "plugins": ["prettier"],
+  "extends": ["airbnb", "semistandard"],
   "rules": {
-    "prettier/prettier": "error"
   }
 }
