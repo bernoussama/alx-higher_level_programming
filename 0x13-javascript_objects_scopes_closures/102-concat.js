@@ -10,7 +10,6 @@ const adata = read(fileA);
 const bdata = read(fileB);
 
 const cdata = adata + '' + bdata;
-console.log(cdata);
 
 fs.writeFile(fileC, cdata.toString(), 'utf8', function (err) {
   if (err) {
