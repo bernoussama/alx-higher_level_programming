@@ -1,0 +1,14 @@
+#!/usr/bin/node
+exports.dict = {
+  89: 1,
+  90: 2,
+  91: 1,
+  92: 3,
+  93: 1,
+  94: 2
+};
+#!/usr/bin/node
+const list = require('./100-data').list;
+const newlist = list.map((x, index) => x * index);
+console.log(list);
+console.log(newlist);
