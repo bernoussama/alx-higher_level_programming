@@ -6,8 +6,8 @@ import sys
 import os
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: {} username password database".format(sys.argv[0]))
+    if len(sys.argv) != 5:
+        print("Usage: {} username password database name".format(sys.argv[0]))
         exit(1)
 
     username = sys.argv[1]
