@@ -29,7 +29,7 @@ if __name__ == "__main__":
 SELECT cities.id, cities.name, states.name
 FROM cities
 JOIN states ON state_id = states.id
-ORDER BY cities.id ASC"
+ORDER BY cities.id ASC
         """
     )  # HERE I have to know SQL to grab all states in my database
     query_rows = cur.fetchall()
