@@ -38,6 +38,7 @@ ORDER BY cities.id ASC
     )  # HERE I have to know SQL to grab all states in my database
     query_rows = cur.fetchall()
     for row in query_rows:
-        print(row[0], end=", " if row != query_rows[-1] else "\n")
+        print(row[0], end=", " if row != query_rows[-1] else "")
+    print()
     cur.close()
     conn.close()
