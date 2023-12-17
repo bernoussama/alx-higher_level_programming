@@ -13,10 +13,8 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    if "ON_MYMACHINE" in os.environ:
-        host = "127.0.0.1"
-    else:
-        host = "localhost"
+    host = "127.0.0.1" if "ON_MYMACHINE" in os.environ else "localhost"
+
     conn = MySQLdb.connect(
         host=host,
         port=3306,
