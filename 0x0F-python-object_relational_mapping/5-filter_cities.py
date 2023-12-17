@@ -28,12 +28,11 @@ if __name__ == "__main__":
     cur = conn.cursor()
     cur.execute(
         """
-
-SELECT GROUP_CONCAT(cities.name ORDER BY cities.id ASC SEPARATOR ', ')
-AS city_names
+SELECT cities.name
 FROM cities
-JOIN states ON state_id = states.id
+INNER JOIN states ON state_id = states.id
 where states.name = %s
+ORDER BY cities.id ASC
         """,
         (state_name,),
     )  # HERE I have to know SQL to grab all states in my database
