@@ -3,6 +3,7 @@
 
 import MySQLdb
 import sys
+import os
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
@@ -12,10 +13,12 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-
+    if "ON_MYMACHINE" in os.environ:
+        host = "127.0.0.1"
+    else:
+        host = "localhost"
     conn = MySQLdb.connect(
-        host="127.0.0.1",
-        # host="localhost",
+        host=host,
         port=3306,
         user=username,
         passwd=password,
