@@ -28,5 +28,8 @@ if __name__ == "__main__":
     session = Session()
     instance = session.query(State).filter(
         State.name == state_name).one_or_none()
-    print("{}".format(instance.id))
+    if instance is None:
+        print("Not found")
+    else:
+        print("{}".format(instance.id))
     session.close()
