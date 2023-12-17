@@ -1,6 +1,7 @@
 #!/bin/env bash
 
 autopep8 --in-place --aggressive --aggressive *.py
+pycodestyle --show-source --show-pep *.py
 
 if [ "$?" == "0" ]; then
     push "$1"
