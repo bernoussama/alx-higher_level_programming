@@ -1,1 +1,33 @@
 #!/usr/bin/python3
+"""
+Module that lists all State objects from the database hbtn_0e_6_usa
+containing a in the name
+"""
+
+import sys
+import os
+from sqlalchemy import create_engine
+from model_state import State
+from sqlalchemy.orm import sessionmaker
+
+Session = sessionmaker()
+
+if __name__ == "__main__":
+    username = sys.argv[1]
+    pwd = sys.argv[2]
+    host = "localhost" if "ON_MYMACHINE" not in os.environ else "127.0.0.1"
+    db = sys.argv[3]
+    state_name = sys.argv[4] if len(sys.argv) == 5 else "Louisiana"
+
+    engine = create_engine(
+        f"mysql+mysqldb://{username}:{pwd}@{host}/{db}",
+        pool_pre_ping=True,  # echo=True
+    )
+    Session.configure(bind=engine)  # once engine is available
+
+    session = Session()
+    new_state = State(name=state_name)
+    session.add(new_state)
+    session.commit()
+    print("{}".format(new_state.id))
+    session.close()
