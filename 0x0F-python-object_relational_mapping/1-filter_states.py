@@ -29,7 +29,7 @@ if __name__ == "__main__":
     cur = conn.cursor()
     cur.execute(
         """
-SELECT * FROM states WHERE states.name LIKE 'N%' ORDER BY states.id ASC
+SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC
         """
     )  # HERE I have to know SQL to grab all states in my database
     query_rows = cur.fetchall()
