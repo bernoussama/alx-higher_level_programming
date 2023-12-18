@@ -31,6 +31,7 @@ if __name__ == "__main__":
     if not cities:
         print("Nothing")
         exit(1)
-    for city, state in cities:
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+    else:
+        for city, state in cities:
+            print("{}: ({}) {}".format(state.name, city.id, city.name))
     session.close()
