@@ -30,7 +30,7 @@ if __name__ == "__main__":
             joinedload(City.state_id)).order_by(City.id)
     ):
         print(
-            "{}: {} {}".format(
+            "{}: ({}) {}".format(
                 instance.state_id,
                 instance.id,
                 instance.name))
