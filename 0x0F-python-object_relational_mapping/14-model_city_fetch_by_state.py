@@ -26,7 +26,8 @@ if __name__ == "__main__":
 
     session = Session()
 
-    cities = session.query(City).join(State, City.state_id == State.id).all()
+    cities = session.query(City, State).join(
+        State, City.state_id == State.id).all()
     if not cities:
         print("Nothing")
         exit(1)
