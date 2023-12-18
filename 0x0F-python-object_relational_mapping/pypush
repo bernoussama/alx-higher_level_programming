@@ -1,8 +1,6 @@
 #!/bin/env bash
 
-# autopep8 --in-place --aggressive --aggressive *.py
 autopep8 . --recursive --aggressive --in-place --pep8-passes 2000 --verbose
-# pep8 . --exclude=.venv
 pycodestyle --show-source --show-pep *.py
 
 if [ "$?" == "0" ]; then

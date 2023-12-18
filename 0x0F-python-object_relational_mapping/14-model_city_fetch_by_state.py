@@ -26,12 +26,10 @@ if __name__ == "__main__":
 
     session = Session()
 
-    query = session.query(City).join(State, City.state_id == State.id)
-    cities = query.order_by(City.id)
+    cities = session.query(City).join(State, City.state_id == State.id).all()
+    if not cities:
+        print("Nothing")
+        exit(1)
     for city, state in cities:
-        print(
-            "{}: ({}) {}".format(
-                state.name,
-                city.id,
-                city.name))
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
     session.close()
