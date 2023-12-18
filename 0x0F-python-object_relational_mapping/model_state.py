@@ -21,15 +21,3 @@ class State(Base):
     __tablename__ = "states"
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
-
-
-# if __name__ == "__main__":
-#     username = sys.argv[1]
-#     pwd = sys.argv[2]
-#     host = "localhost" if "ON_MYMACHINE" not in os.environ else "127.0.0.1"
-#     db = sys.argv[3]
-#
-#     engine = create_engine(
-#         f"mysql+mysqldb://{username}:{pwd}@{host}/{db}", pool_pre_ping=True
-#     )
-#     Base.metadata.create_all(engine)

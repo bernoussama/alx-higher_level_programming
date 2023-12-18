@@ -8,7 +8,7 @@ import os
 from sqlalchemy import create_engine
 from model_state import State
 from model_city import City
-from sqlalchemy.orm import sessionmaker, joinedload
+from sqlalchemy.orm import sessionmaker
 
 Session = sessionmaker()
 
@@ -25,13 +25,13 @@ if __name__ == "__main__":
     Session.configure(bind=engine)  # once engine is available
 
     session = Session()
-    for instance in (
-        session.query(City).options(
-            joinedload(City.state_id)).order_by(City.id)
-    ):
+
+    query = session.query(City).join(State, City.state_id == State.id)
+    cities = query.order_by(City.id)
+    for city, state in cities:
         print(
             "{}: ({}) {}".format(
-                instance.state_id,
-                instance.id,
-                instance.name))
+                state.name,
+                city.id,
+                city.name))
     session.close()
