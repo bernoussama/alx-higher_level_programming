@@ -13,5 +13,4 @@ if __name__ == "__main__":
     r = requests.get(
         url, auth=requests.models.HTTPBasicAuth(
             username, password))
-    res = r.json()
-    print(res.get("id"))
+    print(r.json().get("id"))
