@@ -17,10 +17,10 @@ if __name__ == "__main__":
     r = requests.post(url, data=payload)
     try:
         res = r.json()
-        if not res:
+        id, name = res.get("id"), res.get("name")
+        if not res or not id or not name:
             print("No result")
         else:
-            id, name = res.get("id"), res.get("name")
             print(f"[{id}] {name}")
 
     except requests.exceptions.JSONDecodeError:
