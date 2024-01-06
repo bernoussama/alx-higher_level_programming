@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+
+autopep8 . --recursive --aggressive --in-place --pep8-passes 2000 --verbose
+pycodestyle --show-source --show-pep8 *.py
+
+if [ "$?" == "0" ]; then
+    push "$1"
+fi
