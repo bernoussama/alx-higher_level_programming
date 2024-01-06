@@ -9,8 +9,11 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     url = f"https://api.github.com/users/{username}"
+    headers = {"Authorization": f"Bearer {password}"}
 
     r = requests.get(
-        url, auth=requests.models.HTTPBasicAuth(
-            username, password))
+        url,
+        headers=headers,
+        # auth=requests.models.HTTPBasicAuth(username, password)
+    )
     print(r.json().get("id"))
