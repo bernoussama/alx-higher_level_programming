@@ -17,7 +17,7 @@ if __name__ == "__main__":
     r = requests.post(url, data=payload)
     try:
         res = r.json()
-        if res == {}:
+        if not res:
             print("No result")
         else:
             id, name = res.get("id"), res.get("name")
