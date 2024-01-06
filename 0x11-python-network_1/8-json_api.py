@@ -14,10 +14,10 @@ if __name__ == "__main__":
 
     payload = {"q": param}
 
-    r = requests.get(url, params=payload)
+    r = requests.post(url, data=payload)
     try:
         res = r.json()
-        if len(res) == 0:
+        if res == {}:
             print("No result")
         else:
             id, name = res.get("id"), res.get("name")
