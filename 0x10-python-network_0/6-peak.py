@@ -6,7 +6,7 @@ def find_peak(ints):
     """Function that finds a peak in a list of unsorted integers"""
     left, right = 0, len(ints) - 1
 
-    while left >= right:
+    while left <= right:
         # Find the middle element without overflow
         mid = left + ((right - left) // 2)
         # If mid element is less than mid-1 element, left half has a peak
