@@ -1,6 +1,5 @@
 #!/usr/bin/node
 
-const { warn } = require('console');
 const fs = require('fs');
 const { exit } = require('process');
 const request = require('request');
