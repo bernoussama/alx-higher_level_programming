@@ -1,5 +1,5 @@
 #!/usr/bin/node
-$(document).ready(function () {
+$(document).ready(() => {
   //
   const link = "https://hellosalut.stefanbohacek.dev/?lang=fr";
   $.get(link, (data) => {
